@@ -1,11 +1,32 @@
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: poppins;
   font-size: 16px;
   line-height: 1;
+  color: white;
+  padding: 30px;
+}
+
+.eveningtime {
+  background-image: url(../../images/eveningtime.jpg);
+}
+
+.nightime {
+  background-image: url(../../images/nightime.jpg);
+}
+
+.morningtime {
+  background-image: url(../../images/morningtime.jpg);
+}
+
+.daytime {
+  background-image: url(../../images/daytime.jpg);
+}
+
+.custom-input {
+  opacity: 80%;
 }
 
 textarea {
-  background: transparent;
   border: none;
   resize: none;
   color: #000000;
@@ -16,9 +37,10 @@ textarea {
 .jumbotron {
   text-align: center;
   background-color: transparent;
-  color: black;
+
+  color: white;
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 5px solid white;
 }
 
 .description {
@@ -28,6 +50,12 @@ textarea {
 .time-block {
   text-align: center;
   border-radius: 15px;
+}
+
+.btn {
+  background-color: rgb(61, 60, 60);
+  opacity: 80%;
+  color: white;
 }
 
 .row {
@@ -68,4 +96,9 @@ textarea {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+.input-group-text {
+  width: 80px;
+  opacity: 80%;
 }
