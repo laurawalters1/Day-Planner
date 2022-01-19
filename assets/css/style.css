@@ -4,6 +4,28 @@ body {
   line-height: 1;
   color: white;
   padding: 30px;
+  background-color: black;
+  /* remember to remove */
+}
+
+#nineAmForm {
+  border-radius: 7px 7px 0px 0px;
+}
+
+#nineAmBtn {
+  border-radius: 0px 7px 0px 0px;
+}
+
+#fivePmForm {
+  border-radius: 0px 0px 7px 7px;
+}
+
+#fivePmBtn {
+  border-radius: 0px 0px 7px 0px;
+}
+
+.container {
+  opacity: 80%;
 }
 
 .eveningtime {
@@ -56,6 +78,8 @@ textarea {
   background-color: rgb(61, 60, 60);
   opacity: 80%;
   color: white;
+  border-radius: 0;
+  border: 1px solid white;
 }
 
 .row {
