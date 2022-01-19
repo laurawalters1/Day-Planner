@@ -3,7 +3,7 @@ body {
   font-size: 16px;
   line-height: 1;
   color: white;
-  padding: 30px;
+  padding-bottom: 50px;
   background-color: black;
   /* remember to remove */
 }
@@ -59,7 +59,7 @@ textarea {
 .jumbotron {
   text-align: center;
   background-color: transparent;
-
+  padding: 10px;
   color: white;
   border-radius: 0;
   border-bottom: 5px solid white;
@@ -125,4 +125,22 @@ textarea {
 .input-group-text {
   width: 80px;
   opacity: 80%;
+}
+
+#currentDay {
+  font-size: 50px;
+}
+
+@media only screen and (max-width: 800px) {
+  #h1 {
+    font-size: 45px;
+  }
+
+  .lead {
+    font-size: 20px;
+  }
+
+  #currentDay {
+    font-size: 40px;
+  }
 }
