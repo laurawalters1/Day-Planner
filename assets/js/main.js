@@ -1,7 +1,9 @@
 function displayTime() {
   setInterval(function () {
-    var reformatDate = moment().format("YYYY-MM-DD  HH:mm:ss");
+    var reformatDate = moment().format("dddd, MMMM Do YYYY");
+    var reformatTime = moment().format("HH:mm:ss");
     $("#currentDay").text(reformatDate);
+    $("#currentTime").text(reformatTime);
   }, 1000);
 }
 
