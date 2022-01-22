@@ -1,3 +1,5 @@
+// Setting date display for header
+
 function displayTime() {
   setInterval(function () {
     var reformatDate = moment().format("dddd, MMMM Do YYYY");
@@ -9,18 +11,7 @@ function displayTime() {
 
 displayTime();
 
-// $("#9am").on("click", function () {
-//   console.log("click");
-//   $("#9am-form").addClass("present", 1000, callback);
-// });
-// function callback() {
-//   setTimeout(function () {
-//     $("#effect").removeClass("present");
-//   }, 1500);
-// }
-
-console.log(moment().format("YY-MM-DD HH:mm:ss"));
-
+// Declaring variables for each hour to compare momement to
 var time = moment();
 
 var format = "HH:mm:ss";
@@ -40,6 +31,9 @@ var sixPm = moment("18:00:00", format);
 var twelveAm = moment("23:59:00", format);
 var oneAm = moment("00:01:00", format);
 var eightAm = moment("08:59:00", format);
+
+// Declaring variables for each time-block
+
 var nineAmBox = $("#nineAmForm");
 var tenAmBox = $("#tenAmForm");
 var elevenAmBox = $("#elevenAmForm");
@@ -50,6 +44,10 @@ var threePmBox = $("#threePmForm");
 var fourPmBox = $("#fourPmForm");
 var fivePmBox = $("#fivePmForm");
 
+// Function checks if current time is between time 1 and time 2 parameters
+// If yes, adds present class to inputbox and sets the background image to the body
+// So that this can change throughout the day
+
 function presentTime(time1, time2, inputBox, src) {
   if (moment() >= time1 && moment() <= time2) {
     inputBox.addClass("present");
@@ -57,11 +55,16 @@ function presentTime(time1, time2, inputBox, src) {
   }
 }
 
+// Function checks if moment is greater than two parameters, if so it adds the class of past
+// To the relevant input box
+
 function pastTime(time1, time2, inputBox) {
   if (moment() > time1 && moment() > time2) {
     inputBox.addClass("past");
   }
 }
+
+// Calling past time function and passing in the correct parameters
 
 pastTime(nineAm, tenAm, nineAmBox);
 pastTime(tenAm, elevenAm, tenAmBox);
@@ -73,11 +76,16 @@ pastTime(threePm, fourPm, threePmBox);
 pastTime(fourPm, fivePm, fourPmBox);
 pastTime(fivePm, sixPm, fivePmBox);
 
+// Checking that current time is less than a given time, if so the class of future is added to the
+// relevant input box
+
 function futureTime(time, inputBox) {
   if (moment() < time) {
     inputBox.addClass("future");
   }
 }
+
+// Calling future time functions with the relevant parameters
 
 futureTime(nineAm, nineAmBox);
 futureTime(tenAm, tenAmBox);
@@ -89,17 +97,16 @@ futureTime(threePm, threePmBox);
 futureTime(fourPm, fourPmBox);
 futureTime(fivePm, fivePmBox);
 
-// function whichTime(time1, time2, inputBox) {
-//   if (moment() >= time1 && moment() <= time2) {
-//     inputBox.addClass("present");
-//   }
-// }
+// Function checks if current time falls outside of the specified time blocks and adds background
+// img accordingly
 
 function morningOrNight(time1, time2, src) {
   if (moment() >= time1 && moment() <= time2) {
     body.addClass(src);
   }
 }
+
+// Calling morning or night function with the correct parameters
 
 morningOrNight(oneAm, eightAm, "morningtime");
 presentTime(nineAm, tenAm, nineAmBox, "morningtime");
@@ -114,63 +121,45 @@ presentTime(fivePm, sixPm, fivePmBox, "nightime");
 // presentTime(tenPm, elevenPm, nineAmBox, "nightime");
 morningOrNight(sixPm, twelveAm, "nightime");
 
+// Declaring buttons and input forms,
+
 var nineAmButton = $("#nineAmBtn");
 var nineAmForm = $("#nineAmForm");
 var nineAmText = $("#nineAmText");
-var nineAmOutput = $("#nineAmText");
 
 var tenAmButton = $("#tenAmBtn");
 var tenAmForm = $("#tenAmForm");
 var tenAmText = $("#tenAmText");
-var tenAmOutput = $("#tenAmText");
 
 var elevenAmButton = $("#elevenAmBtn");
 var elevenAmForm = $("#elevenAmForm");
 var elevenAmText = $("#elevenAmText");
-var elevenAmOutput = $("#elevenAmText");
 
 var twelvePmButton = $("#twelvePmBtn");
 var twelvePmForm = $("#twelvePmForm");
 var twelvePmText = $("#twelvePmText");
-var twelvePmOutput = $("#twelvePmText");
 
 var onePmButton = $("#onePmBtn");
 var onePmForm = $("#onePmForm");
 var onePmText = $("#onePmText");
-var onePmOutput = $("#onePmText");
 
 var twoPmButton = $("#twoPmBtn");
 var twoPmForm = $("#twoPmForm");
 var twoPmText = $("#twoPmText");
-var twoPmOutput = $("#twoPmText");
 
 var threePmButton = $("#threePmBtn");
 var threePmForm = $("#threePmForm");
 var threePmText = $("#threePmText");
-var threePmOutput = $("#threePmText");
 
 var fourPmButton = $("#fourPmBtn");
 var fourPmForm = $("#fourPmForm");
 var fourPmText = $("#fourPmText");
-var fourPmOutput = $("#fourPmText");
 
 var fivePmButton = $("#fivePmBtn");
 var fivePmForm = $("#fivePmForm");
 var fivePmText = $("#fivePmText");
-var fivePmOutput = $("#fivePmText");
 
-// console.log(nineAmText);
-// function addToStorage() {
-//   nineAmForm.on("submit", function (event) {
-//     event.preventDefault();
-//     console.log(nineAmText.val());
-//     localStorage.setItem("textArea", nineAmText.val());
-//   });
-// }
-// nineAmText.text(localStorage.getItem("textArea"));
-// console.log(localStorage.getItem("textArea"));
-
-// addToStorage();
+// addToStorage function sets user input to local storage
 
 function addToStorage(form, storageKey, text) {
   form.on("submit", function (event) {
@@ -179,6 +168,8 @@ function addToStorage(form, storageKey, text) {
     localStorage.setItem(storageKey, text.val());
   });
 }
+
+// Calling add to storage with correct parameters
 
 addToStorage(nineAmForm, "nineAmStorage", nineAmText);
 addToStorage(tenAmForm, "tenAmStorage", tenAmText);
@@ -190,6 +181,8 @@ addToStorage(threePmForm, "threePmStorage", threePmText);
 addToStorage(fourPmForm, "fourPmStorage", fourPmText);
 addToStorage(fivePmForm, "fivePmStorage", fivePmText);
 
+// Setting the text content of the input boxes to be equal to the last thing that was saved into local storage
+
 nineAmText.text(localStorage.getItem("nineAmStorage"));
 tenAmText.text(localStorage.getItem("tenAmStorage"));
 elevenAmText.text(localStorage.getItem("elevenAmStorage"));
@@ -199,7 +192,3 @@ twoPmText.text(localStorage.getItem("twoPmStorage"));
 threePmText.text(localStorage.getItem("threePmStorage"));
 fourPmText.text(localStorage.getItem("fourPmStorage"));
 fivePmText.text(localStorage.getItem("fivePmStorage"));
-
-if (moment() < sixPm) {
-  console.log("nightime");
-}
